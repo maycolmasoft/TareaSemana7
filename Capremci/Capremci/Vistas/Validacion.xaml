@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Capremci.Vistas.Validacion" 
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Fill">
+
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Image x:Name="lbl_fotografia_usuarios" WidthRequest="90" HeightRequest="65" Grid.Row="0" Grid.Column="0"></Image>
+                <Label x:Name="lbl_nombre_usuarios" FontSize="18" Grid.Row="1" Grid.Column="0"></Label>
+                <Label x:Name="lbl_celular_usuarios" FontSize="18" Grid.Row="2" Grid.Column="0"></Label>
+                <Entry x:Name="txt_codigo_verificacion" Placeholder="Ultimos 4 Digitos del Celular" Keyboard="Numeric" IsPassword="True" TextChanged="txt_codigo_verificacion_TextChanged" MaxLength="4" Grid.Row="3" Grid.Column="0"></Entry>
+
+            </Grid>
+
+            <Button x:Name="btnVerificar"  WidthRequest="80" HeightRequest="40" Text="Verificar Celular" Clicked="btnVerificar_Clicked"></Button>
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

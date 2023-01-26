@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Capremci.VistasSQLite.Login">
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <Label Text="Usuario:" FontSize="18" ></Label>
+            <Entry x:Name="txtUsuario" Placeholder="Ingrese Usuario" ></Entry>
+            <Label Text="Password:" FontSize="18" ></Label>
+            <Entry x:Name="txtClave" Placeholder="Ingrese Contraseña" IsPassword="True" ></Entry>
+
+            <Button x:Name="btnIniciar"  WidthRequest="80" HeightRequest="40" Text="Inicar Sesión" Clicked="btnIniciar_Clicked"></Button>
+            <Button x:Name="btnRegistrar"  WidthRequest="80" HeightRequest="40" Text="Registrarse" Clicked="btnRegistrar_Clicked"></Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

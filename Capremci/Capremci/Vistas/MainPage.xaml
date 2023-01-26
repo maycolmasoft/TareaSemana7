@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Capremci.Vistas.MainPage">
+
+    <StackLayout>
+       <!-- <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>-->
+
+        <Label x:Name="titleDeviceId" VerticalOptions="Center" HorizontalOptions="Center" />
+        
+        <Button x:Name="BtnStatus" Text="Check status" HorizontalOptions="Center" VerticalOptions="Center" Clicked="BtnStatus_Clicked" />
+        <Label x:Name="LblStatus" HorizontalOptions="Center" VerticalOptions="Center" />
+
+        <Button x:Name="BtnAuthenticate" Text="Authenticate" Margin="0,50,0,0" HorizontalOptions="Center" VerticalOptions="Center" Clicked="BtnAuthenticate_Clicked" />
+        <Label x:Name="LblAuthenticate" HorizontalOptions="Center" VerticalOptions="Center" />
+
+        <Button x:Name="BtnFace" Text="FACE ID" Margin="0,50,0,0" HorizontalOptions="Center" VerticalOptions="Center" Clicked="BtnFace_Clicked" />
+        <Label x:Name="LblFace" HorizontalOptions="Center" VerticalOptions="Center" />
+
+
+    </StackLayout>
+
+</ContentPage>
