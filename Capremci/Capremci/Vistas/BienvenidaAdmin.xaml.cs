@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,13 @@ namespace Capremci.Vistas
         byte[] fotografia_usuarios_global = null;
         public BienvenidaAdmin (int id_usuarios, string cedula_usuarios, string nombre_usuarios, string apellidos_usuarios, string correo_usuarios, string celular_usuarios, string celular_cifrado, string digito_verificador, string usuario_usuarios, int id_rol, int id_estado, byte[] fotografia_usuarios)
 		{
-			InitializeComponent ();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTAzODU1MEAzMjMwMmUzNDJlMzBlVkxBMzU1Q1QvZnRLT3BMRktabytrM0NNcTNYWVdjeFFCK1Z5SzBybm5jPQ==");
+
+            lbl_nombre_usuarios.Text = nombre_usuarios + " " + apellidos_usuarios;
+            lbl_fotografia_usuarios.Source = ImageSource.FromStream(() => new MemoryStream(fotografia_usuarios));
+
+
+            InitializeComponent();
             id_usuarios_global = id_usuarios;
             cedula_usuarios_global = cedula_usuarios;
             nombre_usuarios_global = nombre_usuarios;

@@ -1,8 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-//using Capremci.Vistas;
-using Capremci.VistasSQLite;
+using Capremci.Vistas;
+//using Capremci.VistasSQLite;
 
 namespace Capremci
 {
@@ -10,9 +10,10 @@ namespace Capremci
     {
         public App()
         {
+            
             InitializeComponent();
 
-            MainPage = MainPage = new NavigationPage(new Login());
+            MainPage = MainPage = new NavigationPage(new Iniciar());
         }
 
         protected override void OnStart()

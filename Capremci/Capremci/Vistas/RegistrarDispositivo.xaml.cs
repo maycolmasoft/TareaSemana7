@@ -1,5 +1,6 @@
 ﻿using Capremci.Modelos;
 using Newtonsoft.Json;
+using Plugin.DeviceInfo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,13 +13,12 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Plugin.DeviceInfo;
 
 namespace Capremci.Vistas
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CodigoVerificacion : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class RegistrarDispositivo : ContentPage
+    {
         string imei_global = null;
         string nombre_dispositivo_global = null;
 
@@ -34,10 +34,8 @@ namespace Capremci.Vistas
         int id_rol_global = 0;
         int id_estado_global = 0;
         byte[] fotografia_usuarios_global = null;
-        string pin_verificacion_global = "";
-
-        public CodigoVerificacion (int id_usuarios, string cedula_usuarios, string nombre_usuarios, string apellidos_usuarios, string correo_usuarios, string celular_usuarios, string celular_cifrado, string digito_verificador, string usuario_usuarios, int id_rol, int id_estado, byte[] fotografia_usuarios, string pin_verificacion)
-		{
+        public RegistrarDispositivo(int id_usuarios, string cedula_usuarios, string nombre_usuarios, string apellidos_usuarios, string correo_usuarios, string celular_usuarios, string celular_cifrado, string digito_verificador, string usuario_usuarios, int id_rol, int id_estado, byte[] fotografia_usuarios)
+        {
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTAzODU1MEAzMjMwMmUzNDJlMzBlVkxBMzU1Q1QvZnRLT3BMRktabytrM0NNcTNYWVdjeFFCK1Z5SzBybm5jPQ==");
 
             InitializeComponent();
@@ -52,10 +50,10 @@ namespace Capremci.Vistas
             deviceNameResult.Text = deviceName;
             nombre_dispositivo_global = deviceNameResult.Text;
 
-
             lbl_nombre_usuarios.Text = nombre_usuarios + " " + apellidos_usuarios;
             lbl_celular_usuarios.Text = celular_cifrado;
             lbl_fotografia_usuarios.Source = ImageSource.FromStream(() => new MemoryStream(fotografia_usuarios));
+            txt_dispositivo.Text= nombre_dispositivo_global;
 
             id_usuarios_global = id_usuarios;
             cedula_usuarios_global = cedula_usuarios;
@@ -69,28 +67,24 @@ namespace Capremci.Vistas
             id_rol_global = id_rol;
             id_estado_global = id_estado;
             fotografia_usuarios_global = fotografia_usuarios;
-            pin_verificacion_global = pin_verificacion;
-
         }
 
-        private async void btnVerificarPin_Clicked(object sender, EventArgs e)
+        private async void btnRegistrarDispositivo_Clicked(object sender, EventArgs e)
         {
             try
-            {
-                string pin_verificacion = txt_pin_verificacion.Text;
+            { 
 
-                if (pin_verificacion == pin_verificacion_global)
+                if (imei_global != "" && nombre_dispositivo_global != "")
                 {
 
-                    ActualizarPinRestWs log = new ActualizarPinRestWs
+                    DatosDispositivo log = new DatosDispositivo
                     {
                         id_usuarios = id_usuarios_global,
-                        celular_usuarios = celular_usuarios_global,
-                        pin_validado = pin_verificacion,
-                        imei = imei_global
+                        imei = imei_global,
+                        nombre_dispositivo = nombre_dispositivo_global
                     };
 
-                    Uri RequestUri = new Uri("http://192.168.1.232/rp_c/webservices/ValidarPinService.php");
+                    Uri RequestUri = new Uri("http://192.168.1.232/rp_c/webservices/RegistrarDispositivoService.php");
                     var client = new HttpClient();
                     var json = JsonConvert.SerializeObject(log);
                     var contentJson = new StringContent(json, Encoding.UTF8, "application/json");
@@ -99,44 +93,9 @@ namespace Capremci.Vistas
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
 
-                        var responseContent = await response.Content.ReadAsStringAsync();
-
-
-                        List<Capremci.Modelos.RegistrarDispositivo> posts = JsonConvert.DeserializeObject<List<Capremci.Modelos.RegistrarDispositivo>>(responseContent);
-                        ObservableCollection<Capremci.Modelos.RegistrarDispositivo> _post = new ObservableCollection<Capremci.Modelos.RegistrarDispositivo>(posts);
-
-
-                        int id_usuarios = 0;
-                        bool biometrico = false;
-                        bool pin = false;
-                        bool face_id = false;
-                        bool configuracion = false;
-
-
-
-                        foreach (var item in _post)
-                        {
-                            id_usuarios = item.id_usuarios;
-                            biometrico = item.biometrico;
-                            pin = item.pin;
-                            face_id = item.face_id;
-                            configuracion = item.configuracion;
-                        }
-
-
-
 
                         if (response.Content != null)
                         {
-
-                            if (!configuracion) {
-
-                                await Navigation.PushAsync(new RegistrarDispositivo(id_usuarios_global, cedula_usuarios_global, nombre_usuarios_global, apellidos_usuarios_global,
-                                                correo_usuarios_global, celular_usuarios_global, celular_cifrado_global, digito_verificador_global, usuario_usuarios_global, id_rol_global, id_estado_global, fotografia_usuarios_global
-                                               ));
-
-                            } else
-                            {
 
                                 if (id_rol_global == 2)
                                 {
@@ -152,7 +111,7 @@ namespace Capremci.Vistas
                                                ));
                                 }
 
-                            }
+                            
 
                         }
 
@@ -160,14 +119,14 @@ namespace Capremci.Vistas
                     else if (response.StatusCode == HttpStatusCode.NoContent)
                     {
 
-                        await DisplayAlert("Mensaje", "No se pudo Validar el PIN", "cerrar");
-                        txt_pin_verificacion.Text = "".ToString();
+                        await DisplayAlert("Mensaje", "No se pudo Registrar Dispositivo", "cerrar");
+                        
 
                     }
                     else
                     {
                         await DisplayAlert("Mensaje", "No se pudo establecer una conexión con el servidor", "cerrar");
-                        txt_pin_verificacion.Text = "".ToString();
+                        
 
                     }
 
@@ -176,41 +135,32 @@ namespace Capremci.Vistas
                 else
                 {
 
-                    await DisplayAlert("Notificación", "PIN Incorrecto", "Cerrar");
-                    txt_pin_verificacion.Text = "".ToString();
+                    await DisplayAlert("Notificación", "No se detecto dispositivo", "Cerrar");
+                   
                 }
             }
             catch (Exception dirEx)
             {
                 await DisplayAlert("Mensaje", "Datos invalidos " + dirEx.Message, "OK");
-                txt_pin_verificacion.Text = "".ToString();
+                
             }
         }
 
-        private void txt_pin_verificacion_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnCancelarDispositivo_Clicked(object sender, EventArgs e)
         {
-            try
+            if (id_rol_global == 2)
             {
-                string dato = txt_pin_verificacion.Text;
 
-                if (dato.Length > 4)
-                {
-                    DisplayAlert("Validación", "PIN 4 Dígítos", "cerrar");
-                    txt_pin_verificacion.Text = "".ToString();
-                }
-
-            }
-            catch (Exception dirEx)
-            {
-                DisplayAlert("Mensaje", "Datos invalidos " + dirEx.Message, "OK");
-            }
-        }
-
-        private void btnNuevoPin_Clicked(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new Validacion(id_usuarios_global, cedula_usuarios_global, nombre_usuarios_global, apellidos_usuarios_global,
+                 Navigation.PushAsync(new Bienvenida(id_usuarios_global, cedula_usuarios_global, nombre_usuarios_global, apellidos_usuarios_global,
                             correo_usuarios_global, celular_usuarios_global, celular_cifrado_global, digito_verificador_global, usuario_usuarios_global, id_rol_global, id_estado_global, fotografia_usuarios_global
-                ));
+                           ));
+            }
+            else
+            {
+                 Navigation.PushAsync(new BienvenidaAdmin(id_usuarios_global, cedula_usuarios_global, nombre_usuarios_global, apellidos_usuarios_global,
+                            correo_usuarios_global, celular_usuarios_global, celular_cifrado_global, digito_verificador_global, usuario_usuarios_global, id_rol_global, id_estado_global, fotografia_usuarios_global
+                           ));
+            }
         }
     }
 }

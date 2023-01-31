@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Capremci.Vistas.CodigoVerificacion" 
+             x:Class="Capremci.Vistas.RegistrarDispositivo"
              xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
              xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
-             NavigationPage.HasNavigationBar="False">
+              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Start">
-
+        <StackLayout  VerticalOptions="Start">
+           
             <cards:SfCardView BackgroundColor="LightCyan" Margin="15" BorderColor="Black" BorderWidth="5" CornerRadius="30,0,30,0">
-            <Grid >
+                <Grid >
                 <Grid.RowDefinitions>
                         <RowDefinition Height="80"></RowDefinition>
                         <RowDefinition Height="30"></RowDefinition>
@@ -28,22 +28,20 @@
                     </border:SfBorder>
                     <Label x:Name="lbl_nombre_usuarios"  FontSize="16" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Black" Grid.Row="1" Grid.Column="0"></Label>
                     <Label x:Name="lbl_celular_usuarios"  FontSize="18" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Black" Grid.Row="2" Grid.Column="0" ></Label>
-                    <Label Text="Validación PIN SMS"  FontSize="18" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Green" Grid.Row="3" Grid.Column="0" ></Label>
+                    <Label Text="¿Desea Registrar su Dispositivo?"  FontSize="18" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Green" Grid.Row="3" Grid.Column="0" ></Label>
 
-                    <Entry x:Name="txt_pin_verificacion" Placeholder="Ingrese PIN SMS" FontSize="15"  HorizontalOptions="Center" TextColor="Black" Keyboard="Numeric" IsPassword="True" TextChanged="txt_pin_verificacion_TextChanged" MaxLength="4" Grid.Row="4" Grid.Column="0"></Entry>
-                    
-                </Grid>
+
+                    <Entry x:Name="txt_dispositivo" FontSize="15" TextColor="Black" HorizontalOptions="Center" Placeholder="Dispositivo" Keyboard="Text"  Grid.Row="4" Grid.Column="0" IsReadOnly="True"></Entry>
+
+            </Grid>
             </cards:SfCardView>
 
 
             <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="20" >
-
-                <buttons:SfButton x:Name="btnVerificarPin" CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Verificar Pin" Clicked="btnVerificarPin_Clicked" BackgroundColor = "Green"></buttons:SfButton>
-                <buttons:SfButton x:Name="btnNuevoPin"  CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Solicitar Nuevo Pin" Clicked="btnNuevoPin_Clicked" BackgroundColor = "Blue"></buttons:SfButton>
-
+                <buttons:SfButton x:Name="btnRegistrarDispositivo" CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Registrar" Clicked="btnRegistrarDispositivo_Clicked" BackgroundColor = "Green"></buttons:SfButton>
+                <buttons:SfButton x:Name="btnCancelarDispositivo"  CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="No Registrar" Clicked="btnCancelarDispositivo_Clicked" BackgroundColor = "Blue"></buttons:SfButton>
             </StackLayout>
 
-            
 
 
         </StackLayout>

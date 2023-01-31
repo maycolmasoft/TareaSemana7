@@ -2,29 +2,46 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Capremci.Vistas.Validacion" 
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Fill">
+        <StackLayout VerticalOptions="Start">
 
-            <Grid >
+            <cards:SfCardView BackgroundColor="LightCyan" Margin="15" BorderColor="Black" BorderWidth="5" CornerRadius="30,0,30,0">
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="lbl_fotografia_usuarios" WidthRequest="90" HeightRequest="65" Grid.Row="0" Grid.Column="0"></Image>
-                <Label x:Name="lbl_nombre_usuarios" FontSize="18" Grid.Row="1" Grid.Column="0"></Label>
-                <Label x:Name="lbl_celular_usuarios" FontSize="18" Grid.Row="2" Grid.Column="0"></Label>
-                <Entry x:Name="txt_codigo_verificacion" Placeholder="Ultimos 4 Digitos del Celular" Keyboard="Numeric" IsPassword="True" TextChanged="txt_codigo_verificacion_TextChanged" MaxLength="4" Grid.Row="3" Grid.Column="0"></Entry>
+               <!-- <Image x:Name="lbl_fotografia_usuarios1" WidthRequest="90" HeightRequest="65" Grid.Row="0" Grid.Column="0"></Image>-->
+                    <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" Margin="5">
+                        <Image x:Name="lbl_fotografia_usuarios" WidthRequest="80" HeightRequest="80" ></Image>
+                    </border:SfBorder>
+                    <Label x:Name="lbl_nombre_usuarios"  FontSize="16" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Black" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label x:Name="lbl_celular_usuarios"  FontSize="18" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Black" Grid.Row="2" Grid.Column="0" ></Label>
+                    <Label Text="Validación Número Celular"  FontSize="18" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Green" Grid.Row="3" Grid.Column="0" ></Label>
+
+                    <Entry x:Name="txt_codigo_verificacion"  FontSize="15" TextColor="Black" HorizontalOptions="Center" Placeholder="Ultimos 4 Digitos del Celular" Keyboard="Numeric" IsPassword="True" TextChanged="txt_codigo_verificacion_TextChanged" MaxLength="4" Grid.Row="4" Grid.Column="0"></Entry>
 
             </Grid>
+            </cards:SfCardView>
+            
+            <!--<Button x:Name="btnVerificar"  WidthRequest="80" HeightRequest="40" Text="Verificar Celular" Clicked="btnVerificar_Clicked"></Button>
+-->
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="20" >
+                <buttons:SfButton x:Name="btnVerificar" CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Verificar Celular"  Clicked="btnVerificar_Clicked" BackgroundColor = "ForestGreen" />
+            </StackLayout>
 
-            <Button x:Name="btnVerificar"  WidthRequest="80" HeightRequest="40" Text="Verificar Celular" Clicked="btnVerificar_Clicked"></Button>
+
 
 
 

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Capremci.Vistas.CuentaIndividualDetalle">
+    <ContentPage.Content>
+        <StackLayout>
+
+
+            <Label x:Name="lbl_detalle_cta_ind" HorizontalOptions="Center" FontAttributes="Bold, Italic" FontSize="18" TextColor="Blue" Margin="10"></Label>
+            <ListView x:Name="ListaDetalleCtaInd">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding fecha}"  Detail="{Binding aporte}"></TextCell>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -34,7 +34,9 @@ namespace Capremci.Vistas
 
         public  AccesoRapido (int id_usuarios, string cedula_usuarios, string nombre_usuarios, string apellidos_usuarios, string correo_usuarios, string celular_usuarios, string celular_cifrado, string digito_verificador, string usuario_usuarios, int id_rol, int id_estado, byte[] fotografia_usuarios, bool biometrico, bool pin, bool face_id)
 		{
-			InitializeComponent ();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTAzODU1MEAzMjMwMmUzNDJlMzBlVkxBMzU1Q1QvZnRLT3BMRktabytrM0NNcTNYWVdjeFFCK1Z5SzBybm5jPQ==");
+
+            InitializeComponent();
 
             verificarStatus();
 
@@ -88,7 +90,7 @@ namespace Capremci.Vistas
 
                     if (result.Authenticated)
                     {
-                        LblAuthenticate.Text = "VALIDATION DONE";
+                        LblAuthenticate.Text = "HUELLA VALIDADA CORRECTAMENTE";
                         LblAuthenticate.TextColor = Color.Green;
 
                         var parametros = "?id_usuarios=" + id_usuarios_global;
@@ -169,7 +171,7 @@ namespace Capremci.Vistas
                     }
                     else
                     {
-                        LblAuthenticate.Text = "VALIDATION FAILED";
+                        LblAuthenticate.Text = "HUELLA INVALIDA";
                         LblAuthenticate.TextColor = Color.Red;
                     }
                 }
@@ -199,7 +201,7 @@ namespace Capremci.Vistas
             if (autResult.Authenticated)
             {
 
-                LblFace.Text = "VALIDATION FACE DONE";
+                LblFace.Text = "FACE ID VALIDADO CORRECTAMENTE";
                 LblFace.TextColor = Color.Green;
 
             }

@@ -76,8 +76,26 @@ namespace Capremci.Modelos
         public int id_usuarios { get; set; }
         public string celular_usuarios { get; set; }
         public string pin_validado { get; set; }
+        public string imei { get; set; }
     }
 
+    public class RegistrarDispositivo
+    {
+        public int id_usuarios { get; set; }
+        public bool biometrico { get; set; }
+        public bool pin { get; set; }
+        public bool face_id { get; set; }
 
+        public bool configuracion { get; set; }
+
+    }
+
+    public class DatosDispositivo
+    {
+        public int id_usuarios { get; set; }
+       
+        public string imei { get; set; }
+        public string nombre_dispositivo { get; set; }
+    }
 
 }

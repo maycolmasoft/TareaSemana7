@@ -7,7 +7,6 @@
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
             <Image Source="capremci_load.gif" IsAnimationPlaying="True" WidthRequest="100" HeightRequest="100"></Image>
-            <Label x:Name="titleDeviceId" VerticalOptions="Center" HorizontalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

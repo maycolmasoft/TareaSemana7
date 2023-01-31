@@ -129,6 +129,66 @@
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.8.116</Version>
     </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Buttons">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Cards">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Core">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.DataSource">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.Expander">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.GridCommon">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfBadgeView">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfCalendar">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfChart">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfComboBox">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfGauge">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfListView">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfMaps">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfParallaxView">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPicker">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfPopupLayout">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfProgressBar">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRating">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfRotator">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
+    <PackageReference Include="Syncfusion.Xamarin.SfTabView">
+      <Version>20.4.0.44</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugin.DeviceInfo">
       <Version>4.1.1</Version>
     </PackageReference>

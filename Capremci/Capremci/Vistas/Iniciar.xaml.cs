@@ -39,7 +39,9 @@ namespace Capremci.Vistas
 
         public Iniciar ()
 		{
-			InitializeComponent ();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTAzODU1MEAzMjMwMmUzNDJlMzBlVkxBMzU1Q1QvZnRLT3BMRktabytrM0NNcTNYWVdjeFFCK1Z5SzBybm5jPQ==");
+
+            InitializeComponent();
 
             var deviceId = CrossDeviceInfo.Current.Id;
             var deviceIdResult = new Label();

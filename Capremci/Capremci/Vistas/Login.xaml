@@ -2,37 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Capremci.Vistas.Login"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
 
 
-        <StackLayout VerticalOptions="Fill">
+        <StackLayout VerticalOptions="Center">
             
             <Image Source="lcaprem.png" WidthRequest="90" HeightRequest="65"></Image>
 
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
+            <inputLayout:SfTextInputLayout
+                Hint="Usuario"
+                ContainerType="Outlined"
+                 FocusedColor="ForestGreen"
+                EnablePasswordVisibilityToggle="false">
+                <Entry x:Name="txtUsuario" VerticalOptions="Center"></Entry>
+            </inputLayout:SfTextInputLayout>
 
-                <Label Text="Usuario:" FontSize="18" Grid.Row="0" Grid.Column="0"></Label>
-                <Entry x:Name="txtUsuario" Placeholder="Ingrese Usuario" Grid.Row="0" Grid.Column="1"></Entry>
-                <Label Text="Password:" FontSize="18" Grid.Row="1" Grid.Column="0"></Label>
-                <Entry x:Name="txtClave" Placeholder="Ingrese Contraseña" IsPassword="True" Grid.Row="1" Grid.Column="1"></Entry>
-
-            </Grid>
-
-            <Button x:Name="btnIniciar"  WidthRequest="80" HeightRequest="40" Text="Inicar Sesión" Clicked="Loguear_Clicked"></Button>
+            <inputLayout:SfTextInputLayout
+                Hint="Contraseña"
+               ContainerType="Outlined"
+                OutlineCornerRadius="8"
+                 FocusedColor="ForestGreen"
+                EnablePasswordVisibilityToggle="true">
+                <Entry x:Name="txtClave" IsPassword="True" VerticalOptions="Center"></Entry>
+            </inputLayout:SfTextInputLayout>
 
 
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="20" >
+                <buttons:SfButton x:Name="btnIniciar" CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Inicar Sesión"  Clicked="Loguear_Clicked" BackgroundColor = "ForestGreen" />
+            </StackLayout>
+            
         </StackLayout>
 
-
+     
 
     </ContentPage.Content>
 </ContentPage>

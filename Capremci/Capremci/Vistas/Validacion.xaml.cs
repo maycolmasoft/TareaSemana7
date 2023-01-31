@@ -31,7 +31,9 @@ namespace Capremci.Vistas
 
         public Validacion(int id_usuarios, string cedula_usuarios, string nombre_usuarios, string apellidos_usuarios, string correo_usuarios, string celular_usuarios, string celular_cifrado, string digito_verificador, string usuario_usuarios, int id_rol, int id_estado, byte[] fotografia_usuarios)
 		{
-			InitializeComponent ();
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTAzODU1MEAzMjMwMmUzNDJlMzBlVkxBMzU1Q1QvZnRLT3BMRktabytrM0NNcTNYWVdjeFFCK1Z5SzBybm5jPQ==");
+
+            InitializeComponent();
             lbl_nombre_usuarios.Text = nombre_usuarios +" "+apellidos_usuarios;
             lbl_celular_usuarios.Text = celular_cifrado;
             lbl_fotografia_usuarios.Source = ImageSource.FromStream(() => new MemoryStream(fotografia_usuarios));

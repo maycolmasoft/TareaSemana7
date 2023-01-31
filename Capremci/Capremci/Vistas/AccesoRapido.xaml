@@ -1,32 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Capremci.Vistas.AccesoRapido"
+             x:Class="Capremci.Vistas.AccesoRapido" 
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Fill">
 
+            <cards:SfCardView BackgroundColor="LightCyan" Margin="25" BorderColor="Black" BorderWidth="5" CornerRadius="30,0,30,0">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Image x:Name="lbl_fotografia_usuarios" WidthRequest="90" HeightRequest="65" Grid.Row="0" Grid.Column="0"></Image>
-                <Label x:Name="lbl_nombre_usuarios" FontSize="18" Grid.Row="1" Grid.Column="0"></Label>
-            </Grid>
+                    <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" Margin="5">
+                        <Image x:Name="lbl_fotografia_usuarios" WidthRequest="80" HeightRequest="80" ></Image>
+                    </border:SfBorder>
+                    <Label x:Name="lbl_nombre_usuarios"  FontSize="16" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Black" Grid.Row="1" Grid.Column="0"></Label>
+                    <Label Text="Elija como desea Autenticarse"  FontSize="18" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Green" Grid.Row="2" Grid.Column="0" ></Label>
 
-            <Label x:Name="LblAuthenticate" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Label x:Name="LblFace" HorizontalOptions="Center" VerticalOptions="Center" />
+                </Grid>
+            </cards:SfCardView>
+            
+            <Label x:Name="LblAuthenticate" HorizontalOptions="Center" VerticalOptions="Center" IsEnabled="TRUE"/>
+            <Label x:Name="LblFace" HorizontalOptions="Center" VerticalOptions="Center" IsEnabled="TRUE"/>
 
 
-            <Button x:Name="btnBiometrico"  WidthRequest="80" HeightRequest="40" Text="Huella Digital" Clicked="btnBiometrico_Clicked"></Button>
-            <Button x:Name="btnFaceId"  WidthRequest="80" HeightRequest="40" Text="Face Id" Clicked="btnFaceId_Clicked"></Button>
-            <Button x:Name="btnPin"  WidthRequest="80" HeightRequest="40" Text="Pin" Clicked="btnPin_Clicked"></Button>
+          
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="5" >
 
+                <buttons:SfButton x:Name="btnBiometrico" CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Huella Digital" Clicked="btnBiometrico_Clicked" BackgroundColor = "Green"></buttons:SfButton>
+                <buttons:SfButton x:Name="btnFaceId"  CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Face Id" Clicked="btnFaceId_Clicked" BackgroundColor = "Blue"></buttons:SfButton>
+                <buttons:SfButton x:Name="btnPin"  CornerRadius="20" FontSize="18" WidthRequest="200" HeightRequest="40" Text="Pin" Clicked="btnPin_Clicked" BackgroundColor = "Orange"></buttons:SfButton>
+
+            </StackLayout>
 
         </StackLayout>
     </ContentPage.Content>

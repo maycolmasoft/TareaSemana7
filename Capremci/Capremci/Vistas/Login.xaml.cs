@@ -8,6 +8,7 @@ using Capremci.Modelos;
 using System.Net.Http;
 using System.Net;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Capremci.Vistas
 {
@@ -18,14 +19,26 @@ namespace Capremci.Vistas
        
         public Login()
         {
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTAzODU1MEAzMjMwMmUzNDJlMzBlVkxBMzU1Q1QvZnRLT3BMRktabytrM0NNcTNYWVdjeFFCK1Z5SzBybm5jPQ==");
+
             InitializeComponent();
         }
 
         private async void Loguear_Clicked(object sender, EventArgs e)
         {
+            var usu = txtUsuario.Text;
+            var clav = txtClave.Text;
 
-            try {
-               
+            if (usu == "" || clav == "")
+            {
+                await DisplayAlert("Mensaje", "Ingrese Usuario o Contraseña", "cerrar");
+                return;
+            }
+
+
+            try
+            {
+
                 LoginC log = new LoginC
                 {
                     cedula_usuarios = txtUsuario.Text,

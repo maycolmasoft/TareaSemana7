@@ -1,11 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Capremci.Vistas.BienvenidaAdmin"
-              NavigationPage.HasNavigationBar="False">
+             x:Class="Capremci.Vistas.BienvenidaAdmin"  xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:border="clr-namespace:Syncfusion.XForms.Border;assembly=Syncfusion.Core.XForms"
+             >
     <ContentPage.Content>
-        <StackLayout VerticalOptions="Fill">
-            
+
+        <StackLayout>
+
+
+            <cards:SfCardView BackgroundColor="LightCyan" Margin="10" BorderColor="Black" BorderWidth="5" CornerRadius="30,0,30,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <border:SfBorder BorderColor="Black" HorizontalOptions="Center" VerticalOptions="Center" CornerRadius="50" Margin="5">
+                        <Image x:Name="lbl_fotografia_usuarios" WidthRequest="80" HeightRequest="80" ></Image>
+                    </border:SfBorder>
+                    <Label Text="BIENVENIDO (A)"  FontSize="18" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Green" Grid.Row="1" Grid.Column="0" ></Label>
+                    <Label x:Name="lbl_nombre_usuarios"  FontSize="16" FontAttributes="Bold, Italic" HorizontalOptions="Center" TextColor="Black" Grid.Row="2" Grid.Column="0"></Label>
+
+                </Grid>
+            </cards:SfCardView>
         </StackLayout>
+
     </ContentPage.Content>
 </ContentPage>
